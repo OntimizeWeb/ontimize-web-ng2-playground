@@ -1,0 +1,23 @@
+directories:
+  output: release/
+  buildResources: build
+appId: playground-electron
+files:
+  - filter:
+      - '!node_modules'
+dmg:
+  contents:
+    - x: 110
+      'y': 150
+    - x: 240
+      'y': 150
+      type: link
+      path: /Applications
+linux:
+  target:
+    - AppImage
+    - deb
+win:
+  target: NSIS
+  icon: ./dist/icon.ico
+electronVersion: 7.0.0

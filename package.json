@@ -1,17 +1,57 @@
 {
   "name": "ontimize-web-ngx-playground",
+  "author": "Imatia S.L",
+  "description": "Playground",
   "version": "4.0.1",
   "license": "MIT",
   "angular-cli": {},
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4401",
     "build": "ng build",
     "production": "ng build --aot=false --target -prod",
     "production-aot": "ontimize-web-ngx production-aot --project-name ontimize-web-ngx-playground --href /ontimize-web-ngx-playground/",
-    "production-aot-server": "ontimize-web-ngx production-aot --project-name ontimize-web-ngx-playground --href /ontimizeweb/playground/"
+    "production-aot-server": "ontimize-web-ngx production-aot --project-name ontimize-web-ngx-playground --href /ontimizeweb/playground/",
+    "production-aot-electron": "ontimize-web-ngx production-aot --project-name ontimize-web-ngx-playground --href ./",
+    "electron-start": "npm run build && electron .",
+    "electron-pack": "electron-builder --dir",
+    "electron-builder-aot": "npm run production-aot-electron && electron-builder ."
   },
   "private": true,
+  "build": {
+    "appId": "playground-electron",
+    "directories": {
+      "output": "release/"
+    },
+    "files": [
+      "!node_modules"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon":"./dist/icon.ico"
+    }
+  },
   "dependencies": {
     "@angular/animations": "6.1.10",
     "@angular/cdk": "6.4.7",
@@ -31,8 +71,10 @@
     "@ngx-translate/core": "10.0.2",
     "@ngx-translate/http-loader": "3.0.1",
     "angular2-highlight-js": "5.0.1",
+    "asar": "^2.0.1",
     "core-js": "2.5.7",
-    "ontimize-web-ngx": "4.0.7",
+    "electron-debug": "^3.0.1",
+    "ontimize-web-ngx": "D:/angular 6/ontimize-web-ngx-4.x.x/dist/ontimize-web-ngx-4.0.8-2-SNAPSHOT.tgz",
     "ontimize-web-ngx-gallery": "4.0.0",
     "ontimize-web-ngx-theming": "4.0.2",
     "reflect-metadata": "0.1.12",
@@ -47,6 +89,8 @@
     "@types/node": "~6.0.60",
     "compression-webpack-plugin": "1.1.12",
     "copy-webpack-plugin": "4.5.4",
+    "electron": "^7.0.0",
+    "electron-builder": "20.44.4",
     "html-webpack-plugin": "4.0.0-beta.2",
     "lodash": "4.17.13",
     "lodash.mergewith": "4.6.2",
@@ -55,6 +99,8 @@
     "ts-node": "~2.0.0",
     "typescript": "2.9.2",
     "webpack": "4.18.0",
-    "webpack-cli": "3.1.0"
+    "webpack-cli": "3.1.0",
+    "mysql": "^2.13.0",
+    "pretty-bytes": "^4.0.2"
   }
 }

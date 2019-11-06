@@ -64,7 +64,9 @@ module.exports = {
       { context: "src", from: "assets/css/**/*", to: "./", ignore: ["app.scss"] },
       { context: "src", from: "assets/i18n/**/*", to: "./" },
       { context: "src", from: "assets/images/**/*", to: "./" },
-      { from: "src/favicon.ico", to: "./" }
+      { context: "src", from: "loading.html", to: "./" },
+      { context: "src", from: "assets/js/ckeditor/ckeditor.js", to: "./assets/js/ckeditor/" },
+      { context: "src", from: "*.ico", to: "./" }
     ]),
 
     new ProgressPlugin(),
