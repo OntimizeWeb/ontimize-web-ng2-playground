@@ -4,7 +4,7 @@
     <o-table fxFill #table service-type="DummyService" service="customers" entity="customer" keys="CUSTOMERID" columns="CUSTOMERID;SURNAME;NAME"
       title="CUSTOMERS" insert-button="no" delete-button="no" refresh-button="no" pagination-controls="yes" detail-mode="none" export-button="no"
       store-state="false" query-rows="10" (onClick)="onClick($event)" fixed-header="yes">
-      <o-table-row-expandable expandible-column-visible="no">
+      <o-table-row-expandable expandable-column-visible="no">
         <ng-template let-row>
           <o-column title="CONTACT_DATA" icon="info" class="vertical-margin-10" layout-gap="12px">
             <div fxLayout="row wrap" fxLayoutGap="14px">
